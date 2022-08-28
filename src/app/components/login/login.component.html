@@ -1,1 +1,19 @@
-<p>login works!</p>
+<section>
+    <h1>Prueba técnica</h1>
+    <form [formGroup]="formulario" (ngSubmit)="comprobar()">
+        <input 
+            type="text" 
+            placeholder="email"
+            formControlName="email">
+        <input 
+            type="password" 
+            placeholder="password"
+            formControlName="password">
+        <input 
+            type="checkbox" 
+            name="remember" 
+            id="remember"
+            formControlName="remember">
+        <button type="submit">Enviar</button>
+    </form>
+</section>
