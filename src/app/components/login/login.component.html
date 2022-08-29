@@ -4,11 +4,15 @@
         <input 
             type="text" 
             placeholder="email"
-            formControlName="email">
+            formControlName="email"
+            [class.is-invalid]="emailNoValido">
+            <small *ngIf="emailNoValido">Email no válido</small>
         <input 
             type="password" 
             placeholder="password"
-            formControlName="password">
+            formControlName="password"
+            [class.is-invalid]="passwordNoValido">
+            <small *ngIf="passwordNoValido">Password no válido</small>
         <input 
             type="checkbox" 
             name="remember" 
