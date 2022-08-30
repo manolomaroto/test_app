@@ -1,3 +1,78 @@
+@import '../../../assets/scss/mixins.scss';
+@import '../../../assets/scss/variables.scss';
+
 .is-invalid {
-    border: 1px solid red;
+    border: 10px solid $color-red;
+}
+
+small {
+    color: $color-red;
+}
+
+.background {
+    @include background('../../../assets/img/background.jpg');
+    height: 100vh;
+    @include display-flex-column();
+}
+
+img {
+    border-radius: 4px;
+    width: 150px;
+    padding: 20px;
+}
+
+form {
+    @include display-flex-column();
+    background-color: $color-white;
+    width: 50vh;
+}
+
+input {
+    margin: 5px;
+}
+
+button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: $color-dark-blue;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: $color-dark-blue;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: $color-light-blue;
+}
+
+.input-field .prefix {
+    font-size: 2rem;
+    color: rgba($color: $color-black, $alpha: .3);
+}
+
+h1 {
+    display: none;
+}
+
+@media only screen and(min-width: 960px) {
+    h1 {
+        display: block;
+        font-size: 1.2rem;
+        background-color: $color-white;
+        padding: 0 115px 0 114px;
+        margin: 0;
+    }
+
+    img {
+        background-color: $color-white;
+        border-radius: 0;
+        margin-top: 90px;
+        padding: 10px 110px 20px 110px;
+        width: 345px;
+    }
+
+    button {
+        margin: 10px;
+        width: auto;
+    }
 }

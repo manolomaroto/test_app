@@ -2,6 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HomeComponent } from '../home/home.component';
+
+import {Router, Routes} from '@angular/router';
 
 import { LoginComponent } from './login.component';
 
@@ -9,15 +12,23 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
+  let router: Router;  
+
+  const routes: Routes = [
+    {path: 'home', component: HomeComponent},
+    {path: '**', redirectTo: 'themen', pathMatch: 'full'}
+  ];
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
-      imports: [ReactiveFormsModule, RouterTestingModule]
+      imports: [ReactiveFormsModule, RouterTestingModule.withRoutes(routes)]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
+    router = TestBed.inject(Router);
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -70,6 +81,19 @@ describe('LoginComponent', () => {
     sendButton.nativeElement.click();
     await fixture.whenStable().then(() => {
       expect(component.comprobar).toHaveBeenCalled();
+    });
+  });
+
+  it('Debe de llamar a comprobar y navegar a home  al pulsar Enviar', async() => {
+    spyOn(router, 'navigate');
+    const sendButton = fixture.debugElement.query(By.css('button'));
+    const controlEm = component.formulario.get('email');
+    controlEm.setValue('asd@asd.com');
+    const controlPass = component.formulario.get('password');
+    controlPass.setValue('12345');
+    sendButton.nativeElement.click();
+    await fixture.whenStable().then(() => {
+      expect(router.navigate).toHaveBeenCalledWith(['home']);
     });
   });
 
