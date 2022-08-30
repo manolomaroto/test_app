@@ -1,0 +1,11 @@
+@mixin background($url) {
+    background-image: url($url);
+    background-size: cover;
+    background-position: center;
+}
+
+@mixin display-flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
