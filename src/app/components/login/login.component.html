@@ -1,25 +1,27 @@
 <section class="background">
-    <img src="../../../assets/img/logo.jpg" alt="Logo">
+    <img class="logo-img" src="../../../assets/img/logo.jpg" alt="Logo">
     <h1>Prueba técnica</h1>
-    <form [formGroup]="formulario" (ngSubmit)="comprobar()">
+    <form class="form-container" [formGroup]="formulario" (ngSubmit)="comprobar()">
         <div class="input-field">
             <i class="material-icons prefix">person_outline</i>
             <input 
+            class="input-login"
             type="text" 
             placeholder="email"
             formControlName="email"
             [class.is-invalid]="emailNoValido">
         </div>
-        <small *ngIf="emailNoValido">Email no válido</small>
+        <small class="alert-text" *ngIf="emailNoValido">Email no válido</small>
         <div class="input-field">
             <i class="material-icons prefix">lock_outline</i>
             <input 
+            class="input-login"
             type="password" 
             placeholder="password"
             formControlName="password"
             [class.is-invalid]="passwordNoValido">
         </div>
-        <small *ngIf="passwordNoValido">Password no válido</small>
+        <small class="alert-text" *ngIf="passwordNoValido">Password no válido</small>
         <div class="switch">
             <label>
                 Recordar
@@ -29,6 +31,6 @@
                 <span class="lever"></span>
             </label>
             </div>
-        <button type="submit" class="btn waves-effect">Acceder</button>
+        <button type="submit" class="btn waves-effect button-login">Acceder</button>
     </form>
 </section>

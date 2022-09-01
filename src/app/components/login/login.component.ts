@@ -14,11 +14,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router
-  ) { 
-    this.crearFormulario();
-  }
+  ) {}
 
   ngOnInit(): void {
+    this.crearFormulario();
   }
 
   get emailNoValido() {

@@ -38,16 +38,20 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Debe tener un get emailNoValido',() => {
-    expect(component.emailNoValido).toBeDefined();
+  it('emailNoValido debe ser falso al inicio',() => {
+    expect(component.emailNoValido).toEqual(false);
   });
 
-  it('Debe tener un get passwordNoValido',() => {
-    expect(component.passwordNoValido).toBeDefined();
+  it('passwordNoValido debe ser false al inicio',() => {
+    expect(component.passwordNoValido).toEqual(false);
   });
 
-  it('Debe tener un método comprobar', () => {
-    expect(component.comprobar).toBeDefined();
+  it('crearFormulario debe ser llamado al inicio', async() => {
+    spyOn(component, 'crearFormulario');
+    component.ngOnInit();
+    await fixture.whenStable().then( () => {
+      expect(component.crearFormulario).toHaveBeenCalled();
+    })
   })
 
 

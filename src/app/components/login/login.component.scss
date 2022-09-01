@@ -5,7 +5,7 @@
     border: 10px solid $color-red;
 }
 
-small {
+.alert-text {
     color: $color-red;
 }
 
@@ -13,28 +13,29 @@ small {
     @include background('../../../assets/img/background.jpg');
     height: 100vh;
     @include display-flex-column();
+
+    .logo-img {
+        border-radius: 4px;
+        width: 150px;
+        padding: 20px;
+    }
+
+    .form-container {
+        @include display-flex-column();
+        background-color: $color-white;
+        width: 50vh;
+
+    }
+    
+    .button-login {
+        margin-top: 10px;
+        width: 100%;
+        background-color: $color-dark-blue;
+    }
 }
 
-img {
-    border-radius: 4px;
-    width: 150px;
-    padding: 20px;
-}
-
-form {
-    @include display-flex-column();
-    background-color: $color-white;
-    width: 50vh;
-}
-
-input {
+.input-login {
     margin: 5px;
-}
-
-button {
-    margin-top: 10px;
-    width: 100%;
-    background-color: $color-dark-blue;
 }
 
 .switch label input[type=checkbox]:checked+.lever:after {
@@ -63,7 +64,7 @@ h1 {
         margin: 0;
     }
 
-    img {
+    .background .logo-img {
         background-color: $color-white;
         border-radius: 0;
         margin-top: 90px;
@@ -71,7 +72,7 @@ h1 {
         width: 345px;
     }
 
-    button {
+    .background .button-login {
         margin: 10px;
         width: auto;
     }
